@@ -6,6 +6,7 @@
     "npm": "6.13.0",
     "node": "10.14.1"
   },
+  "homepage" : "http://josephwilliams.github.io/m10-concept",
   "dependencies": {
     "classnames": "^2.2.6",
     "lodash": "^4.17.15",
