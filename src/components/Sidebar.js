@@ -2,6 +2,8 @@ import React from 'react';
 import {
   Link,
 } from 'react-router-dom';
+import lodashGet from 'lodash/get';
+import classnames from 'classnames';
 import TokenLogo from '../assets/tokenx-logo.svg';
 import IconArrowInactive from '../assets/icon-arrow-inactive.svg';
 import IconSettingInactive from '../assets/icon-setting-gear-inactive.svg';
@@ -44,6 +46,7 @@ const sidebarLinks = [
 ];
 
 const Sidebar = () => {
+  const relUrl = lodashGet(window, 'location.pathname');
   return (
     <div className={'sidebarWrapper'}>
       <div className={'sidebarIconImageWrapper'}>
@@ -55,8 +58,16 @@ const Sidebar = () => {
       </div>
       {sidebarLinks.map(sidebarLink => {
         const { title, linkTo, icon, customIconStyle } = sidebarLink;
+        const isCurrentPath = relUrl === linkTo
         return (
-          <Link to={linkTo} className={'sidebarLink'}>
+          <Link
+            className={classnames(
+              'sidebarLink',
+              isCurrentPath && 'sidebarLinkCurrent',
+            )}
+            to={linkTo}
+            key={title}
+          >
             <img
               src={icon}
               alt={title}

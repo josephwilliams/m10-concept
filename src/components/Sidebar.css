@@ -15,8 +15,13 @@
   text-decoration: none;
 }
 
+.sidebarLinkCurrent {
+  border-right: 4px solid #6d58ff;
+}
+
 .sidebarLink:hover {
   border-right: 4px solid #6d58ff;
+  background-image: linear-gradient(to right, rgba(255,0,0,0), #493d9f);
 }
 
 .sidebarIconImageWrapper {
