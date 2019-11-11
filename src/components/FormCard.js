@@ -21,7 +21,7 @@ class FormCard extends Component {
       subtitle,
       formLabel,
       buttonTextLeft,
-      buttonTextRight,
+      // buttonTextRight,
       buttonLinkTo,
     } = this.props
     const isFormInput = inputText.length > 0
