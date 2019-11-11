@@ -1,0 +1,23 @@
+.buttonWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #6d58ff;
+  border-color: rgba(109,88,255,1);
+  height: 50px;
+  width: 100%;
+  cursor: pointer;
+  color: #fefefe;
+  font-weight: 500;
+  border-radius: 4px;
+}
+
+.buttonWrapper:hover {
+  background-color: #624fe6;
+}
+
+.buttonWrapperDisabled {
+  background-color: #453c95;
+  opacity: 0.5;
+  cursor: not-allowed;
+}
