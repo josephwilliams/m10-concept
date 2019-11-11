@@ -9,6 +9,7 @@ const Button = ({
   buttonText,
   linkTo,
   disabled,
+  onClick,
 }) => (
   <Link
     className={classnames(
@@ -16,6 +17,7 @@ const Button = ({
       disabled && 'buttonWrapperDisabled',
     )}
     to={!disabled && linkTo}
+    onClick={onClick}
   >
     {buttonText}
   </Link>

@@ -4,8 +4,9 @@ import OnboardingPage from '../components/OnboardingPage';
 const FORM_CONTENT = {
   title: 'Select your Institution',
   formLabel: 'Select instution',
-  buttonTextLeft: 'Next',
-  buttonLinkTo: '/onboarding-email'
+  buttonText: 'Next',
+  buttonLinkTo: '/onboarding-email',
+  setInputGlobalVariableOnButtonClick: 'institution',
 };
 
 const OnboardingInstitution = () => (

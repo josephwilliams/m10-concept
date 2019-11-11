@@ -20,9 +20,10 @@ const OnboardingPage = ({
         title={AUTH_FLOW_FORM_CONTENT.title}
         subtitle={AUTH_FLOW_FORM_CONTENT.subtitle}
         formLabel={AUTH_FLOW_FORM_CONTENT.formLabel}
-        buttonTextLeft={AUTH_FLOW_FORM_CONTENT.buttonTextLeft}
+        buttonText={AUTH_FLOW_FORM_CONTENT.buttonText}
         buttonTextRight={AUTH_FLOW_FORM_CONTENT.buttonTextRight}
         buttonLinkTo={AUTH_FLOW_FORM_CONTENT.buttonLinkTo}
+        setInputGlobalVariableOnButtonClick={AUTH_FLOW_FORM_CONTENT.setInputGlobalVariableOnButtonClick}
       />
     </div>
     <div className={'onboardingPageTitleColumn'}>

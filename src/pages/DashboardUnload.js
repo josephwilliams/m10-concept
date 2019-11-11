@@ -5,7 +5,7 @@ import FormCard from '../components/FormCard';
 const FORM_CONTENT = {
   title: 'Unload wallet amount',
   subtitle: 'Available bank account balance: ',
-  buttonTextLeft: 'Continue',
+  buttonText: 'Continue',
   placeholder: '$',
 };
 
@@ -23,7 +23,7 @@ class DashboardUnload extends Component {
         <FormCard
           title={FORM_CONTENT.title}
           subtitle={FORM_CONTENT.subtitle}
-          buttonTextLeft={FORM_CONTENT.buttonTextLeft}
+          buttonText={FORM_CONTENT.buttonText}
           placeholder={FORM_CONTENT.placeholder}
         />
       </DashboardPage>

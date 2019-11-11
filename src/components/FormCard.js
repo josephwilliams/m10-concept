@@ -2,6 +2,10 @@ import React, { Component } from 'react'
 import Button from './Button'
 import './FormCard.css'
 
+function setGlobalVar(key, value) {
+  window[key] = value;
+}
+
 class FormCard extends Component {
   constructor(props) {
     super(props);
@@ -20,12 +24,17 @@ class FormCard extends Component {
       title,
       subtitle,
       formLabel,
-      buttonTextLeft,
-      // buttonTextRight,
+      buttonText,
+      setInputGlobalVariableOnButtonClick,
       buttonLinkTo,
       placeholder,
     } = this.props
     const isFormInput = inputText.length > 0
+    const buttonOnClick = (
+      setInputGlobalVariableOnButtonClick
+        ? setGlobalVar(setInputGlobalVariableOnButtonClick, inputText)
+        : () => {}
+    )
     return (
       <div className={'cardWrapper'}>
         <div className={'cardContentContainer'}>
@@ -53,9 +62,10 @@ class FormCard extends Component {
         </div>
         <div className={'formButtonWrapper'}>
           <Button
-            buttonText={buttonTextLeft}
+            buttonText={buttonText}
             linkTo={buttonLinkTo}
             disabled={!isFormInput}
+            onClick={buttonOnClick}
           />
         </div>
       </div>

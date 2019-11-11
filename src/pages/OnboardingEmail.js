@@ -5,8 +5,9 @@ const FORM_CONTENT = {
   title: 'Email',
   subtitle: 'We’re gonna confirm this, so use a real one!',
   formLabel: 'Email',
-  buttonTextLeft: 'Next',
-  buttonLinkTo: '/onboarding-confirmation-code'
+  buttonText: 'Next',
+  buttonLinkTo: '/onboarding-confirmation-code',
+  setInputGlobalVariableOnButtonClick: 'email',
 };
 
 const OnboardingEmail = () => (
