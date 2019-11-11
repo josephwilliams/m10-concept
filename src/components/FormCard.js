@@ -23,6 +23,7 @@ class FormCard extends Component {
       buttonTextLeft,
       // buttonTextRight,
       buttonLinkTo,
+      placeholder,
     } = this.props
     const isFormInput = inputText.length > 0
     return (
@@ -46,6 +47,7 @@ class FormCard extends Component {
               type={'text'}
               className={'cardFormInput'}
               onChange={this.updateInputText}
+              placeholder={placeholder}
             />
           </div>
         </div>
