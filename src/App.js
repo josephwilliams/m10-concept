@@ -10,6 +10,7 @@ import {
   OnboardingEmail,
   OnboardingConfirmationCode,
 } from './pages'
+import 'typeface-source-sans-pro'
 
 export default function BasicExample() {
   return (
