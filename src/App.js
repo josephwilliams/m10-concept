@@ -9,21 +9,22 @@ import {
   OnboardingInstitution,
   OnboardingEmail,
   OnboardingConfirmationCode,
+  DashboardHome,
+  DashboardSettings,
+  DashboardLoad,
+  DashboardSend,
+  DashboardUnload,
 } from './pages'
 import 'typeface-source-sans-pro'
 
 export default function BasicExample() {
   return (
     <Router>
-      <div className={''}>
-        {/*
-          A <Switch> looks through all its children <Route>
-          elements and renders the first one whose path
-          matches the current URL. Use a <Switch> any time
-          you have multiple routes, but you want only one
-          of them to render at a time
-        */}
+      <div>
         <Switch>
+          <Route exact path={'/'}>
+            <OnboardingInstitution />
+          </Route>
           <Route exact path={'/onboarding-institution'}>
             <OnboardingInstitution />
           </Route>
@@ -34,18 +35,22 @@ export default function BasicExample() {
             <OnboardingConfirmationCode />
           </Route>
           <Route path={'/dashboard-home'}>
-            <Dashboard />
+            <DashboardHome />
+          </Route>
+          <Route path={'/dashboard-settings'}>
+            <DashboardSettings />
+          </Route>
+          <Route path={'/dashboard-load'}>
+            <DashboardLoad />
+          </Route>
+          <Route path={'/dashboard-send'}>
+            <DashboardSend />
+          </Route>
+          <Route path={'/dashboard-unload'}>
+            <DashboardUnload />
           </Route>
         </Switch>
       </div>
     </Router>
-  );
-}
-
-function Dashboard() {
-  return (
-    <div>
-      <h2>Dashboard</h2>
-    </div>
   );
 }

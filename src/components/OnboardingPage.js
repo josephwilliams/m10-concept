@@ -22,7 +22,7 @@ const OnboardingPage = ({
         formLabel={AUTH_FLOW_FORM_CONTENT.formLabel}
         buttonTextLeft={AUTH_FLOW_FORM_CONTENT.buttonTextLeft}
         buttonTextRight={AUTH_FLOW_FORM_CONTENT.buttonTextRight}
-        buttonLinkTo={'/onboarding-email'}
+        buttonLinkTo={AUTH_FLOW_FORM_CONTENT.buttonLinkTo}
       />
     </div>
     <div className={'onboardingPageTitleColumn'}>

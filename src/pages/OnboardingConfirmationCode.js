@@ -6,6 +6,7 @@ const AUTH_FLOW_FORM_CONTENT = {
   subtitle: 'We sent a top secret code to your email.',
   formLabel: 'Confirmation Code',
   buttonTextLeft: 'Continue',
+  buttonLinkTo: '/dashboard-home'
 }
 
 const OnboardingEmail = () => (

@@ -6,6 +6,7 @@ const AUTH_FLOW_FORM_CONTENT = {
   subtitle: 'We’re gonna confirm this, so use a real one!',
   formLabel: 'Email',
   buttonTextLeft: 'Next',
+  buttonLinkTo: '/onboarding-confirmation-code'
 };
 
 const OnboardingEmail = () => (

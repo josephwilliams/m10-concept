@@ -5,6 +5,7 @@ const AUTH_FLOW_FORM_CONTENT = {
   title: 'Select your Institution',
   formLabel: 'Select instution',
   buttonTextLeft: 'Next',
+  buttonLinkTo: '/onboarding-email'
 };
 
 const OnboardingInstitution = () => (

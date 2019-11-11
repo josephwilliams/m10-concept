@@ -1,0 +1,25 @@
+.sidebarWrapper {
+  width: 250px;
+  height: 100vh;
+  background: #1e1e2b;
+}
+
+.sidebarLink {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 16px 20px;
+  color: #ffffff;
+  font-weight: 500;
+  font-size: 15px;
+  text-decoration: none;
+}
+
+.sidebarLink:hover {
+  border-right: 4px solid #6d58ff;
+}
+
+.sidebarIconImageWrapper {
+  padding: 20px;
+  border-bottom: 1px solid #353440;
+}
