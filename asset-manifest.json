@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/m10-concept/static/css/main.14dfd840.chunk.css",
+    "main.js": "/m10-concept/static/js/main.ada37229.chunk.js",
+    "runtime-main.js": "/m10-concept/static/js/runtime-main.463d90d7.js",
+    "static/css/2.67d24aab.chunk.css": "/m10-concept/static/css/2.67d24aab.chunk.css",
+    "static/js/2.7bf661bf.chunk.js": "/m10-concept/static/js/2.7bf661bf.chunk.js",
+    "index.html": "/m10-concept/index.html",
+    "precache-manifest.17503c397a7401492b45c643923c0512.js": "/m10-concept/precache-manifest.17503c397a7401492b45c643923c0512.js",
+    "service-worker.js": "/m10-concept/service-worker.js",
+    "static/media/icon-arrow-inactive.svg": "/m10-concept/static/media/icon-arrow-inactive.2053ca82.svg",
+    "static/media/icon-dashboard-inactive.svg": "/m10-concept/static/media/icon-dashboard-inactive.49ccdb72.svg",
+    "static/media/icon-setting-gear-inactive.svg": "/m10-concept/static/media/icon-setting-gear-inactive.bd019653.svg",
+    "static/media/onboarding-icon.png": "/m10-concept/static/media/onboarding-icon.88681c51.png",
+    "static/media/index.css": "/m10-concept/static/media/source-sans-pro-latin-900italic.f6a4e055.woff2",
+    "static/media/token-logo.png": "/m10-concept/static/media/token-logo.193e99dd.png",
+    "static/media/tokenx-logo.svg": "/m10-concept/static/media/tokenx-logo.81f51544.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.463d90d7.js",
+    "static/css/2.67d24aab.chunk.css",
+    "static/js/2.7bf661bf.chunk.js",
+    "static/css/main.14dfd840.chunk.css",
+    "static/js/main.ada37229.chunk.js"
+  ]
+}
