@@ -1,21 +1,24 @@
 import React from 'react';
 import classnames from 'classnames'
+import {
+  Link,
+} from 'react-router-dom';
 import './Button.css'
 
 const Button = ({
   buttonText,
-  onClick,
+  linkTo,
   disabled,
 }) => (
-  <div
+  <Link
     className={classnames(
       'buttonWrapper',
       disabled && 'buttonWrapperDisabled',
     )}
-    onClick={onClick}
+    to={!disabled && linkTo}
   >
     {buttonText}
-  </div>
+  </Link>
 );
 
 export default Button;

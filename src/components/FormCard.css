@@ -58,6 +58,10 @@
   padding: 2px 10px;
 }
 
+.cardFormInput:focus {
+  border: 1px solid #624fe6;
+}
+
 .formButtonWrapper {
   border-top: 1px solid #353440;
   padding: 30px 40px;

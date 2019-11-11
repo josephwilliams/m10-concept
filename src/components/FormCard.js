@@ -22,7 +22,7 @@ class FormCard extends Component {
       formLabel,
       buttonTextLeft,
       buttonTextRight,
-      onClickNext,
+      buttonLinkTo,
     } = this.props
     const isFormInput = inputText.length > 0
     return (
@@ -52,7 +52,7 @@ class FormCard extends Component {
         <div className={'formButtonWrapper'}>
           <Button
             buttonText={buttonTextLeft}
-            onClick={onClickNext}
+            linkTo={buttonLinkTo}
             disabled={!isFormInput}
           />
         </div>
