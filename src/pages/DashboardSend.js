@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 import DashboardPage from '../components/DashboardPage';
 import FormCard from '../components/FormCard';
 
@@ -15,6 +16,20 @@ class DashboardSend extends Component {
     this.state = {
       recentTransaction: [],
     };
+  }
+
+  transferFunds = amount => {
+    const userEmail = window.email;
+    const options = {
+      method: 'POST',
+      url: 'https://m10-concept-api.herokuapp.com/load-user-funds',
+      data: {
+        userEmail: userEmail,
+        amount: amount,
+      },
+    };
+    const res = axios(options);
+    console.log('res', res);
   }
 
   render() {

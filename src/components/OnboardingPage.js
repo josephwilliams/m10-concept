@@ -2,7 +2,7 @@ import React from 'react'
 import FormCard from '../components/FormCard';
 import TokenLogo from '../assets/token-logo.png';
 import OnboardingIcon from '../assets/onboarding-icon.png';
-import './OnboardingPage.css';
+import '../styles/OnboardingPage.css';
 
 const OnboardingPage = ({
   AUTH_FLOW_FORM_CONTENT,

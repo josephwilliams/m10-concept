@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Button from './Button'
-import './FormCard.css'
+import '../styles/FormCard.css'
 
 function setGlobalVar(key, value) {
   window[key] = value;
@@ -28,12 +28,18 @@ class FormCard extends Component {
       setInputGlobalVariableOnButtonClick,
       buttonLinkTo,
       placeholder,
+      hideInput,
+      buttonOnClick,
     } = this.props
     const isFormInput = inputText.length > 0
-    const buttonOnClick = (
-      setInputGlobalVariableOnButtonClick
-        ? setGlobalVar(setInputGlobalVariableOnButtonClick, inputText)
-        : () => {}
+    const onClick = (
+      buttonOnClick
+        ? buttonOnClick
+        : (
+          setInputGlobalVariableOnButtonClick
+            ? setGlobalVar(setInputGlobalVariableOnButtonClick, inputText)
+            : () => {}
+        ) : () => {}
     )
     return (
       <div className={'cardWrapper'}>
@@ -51,21 +57,23 @@ class FormCard extends Component {
           <div className={'cardFormLabel'}>
             {formLabel}
           </div>
-          <div className={'cardFormInputWrapper'}>
-            <input
-              type={'text'}
-              className={'cardFormInput'}
-              onChange={this.updateInputText}
-              placeholder={placeholder}
-            />
-          </div>
+          {!hideInput && (
+            <div className={'cardFormInputWrapper'}>
+              <input
+                type={'text'}
+                className={'cardFormInput'}
+                onChange={this.updateInputText}
+                placeholder={placeholder}
+              />
+            </div>
+          )}
         </div>
         <div className={'formButtonWrapper'}>
           <Button
             buttonText={buttonText}
             linkTo={buttonLinkTo}
             disabled={!isFormInput}
-            onClick={buttonOnClick}
+            onClick={onClick}
           />
         </div>
       </div>
@@ -73,4 +81,4 @@ class FormCard extends Component {
   }
 }
 
-export default FormCard
+export default FormCard;

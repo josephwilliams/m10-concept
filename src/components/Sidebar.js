@@ -8,8 +8,7 @@ import TokenLogo from '../assets/tokenx-logo.svg';
 import IconArrowInactive from '../assets/icon-arrow-inactive.svg';
 import IconSettingInactive from '../assets/icon-setting-gear-inactive.svg';
 import IconDashboardInactive from '../assets/icon-dashboard-inactive.svg';
-
-import './Sidebar.css';
+import '../styles/Sidebar.css';
 
 const sidebarLinks = [
   {

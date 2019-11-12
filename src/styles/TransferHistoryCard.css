@@ -1,0 +1,41 @@
+.transferHistoryCardWrapper {
+  display: flex;
+  flex-flow: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  background: #ffffff;
+  border-radius: 4px;
+  color: rgba(24,24,35,1);
+  padding: 20px 16px;
+  line-height: 20px;
+}
+
+.transferHistoryCardColumnLeft {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: flex-start;
+  font-size: 13px;
+}
+
+.transferHistoryCardColumnRight {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: flex-end;
+  font-size: 13px;
+}
+
+.transferHistoryCardTitle {
+  font-weight: 600;
+}
+
+.transferHistoryCardInstitution {
+  font-size: 12px;
+}
+
+.transferHistoryCardAmount {
+  font-weight: 600;
+}
+
+.transferHistoryCardTime {
+  font-size: 12px;
+}

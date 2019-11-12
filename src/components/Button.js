@@ -3,7 +3,7 @@ import classnames from 'classnames'
 import {
   Link,
 } from 'react-router-dom';
-import './Button.css'
+import '../styles/Button.css'
 
 const Button = ({
   buttonText,
