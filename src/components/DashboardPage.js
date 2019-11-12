@@ -2,7 +2,9 @@ import React from 'react';
 import Sidebar from './Sidebar'
 import '../styles/DashboardPage.css'
 
-const DashboardPage = ({ children, title }) => (
+const DashboardPage = ({
+  title, children
+}) => (
   <div className={'dashboardPageWrapper'}>
     <Sidebar />
     <div className={'dashboardPageContentWrapper'}>

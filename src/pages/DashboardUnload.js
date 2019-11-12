@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import withUserData from '../hoc/withUserData';
 import DashboardPage from '../components/DashboardPage';
 import FormCard from '../components/FormCard';
 
@@ -31,4 +32,4 @@ class DashboardUnload extends Component {
   }
 }
 
-export default DashboardUnload;
+export default withUserData(DashboardUnload);

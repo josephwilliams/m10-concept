@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import withUserData from '../hoc/withUserData';
 import DashboardPage from '../components/DashboardPage';
 import FormCard from '../components/FormCard';
 
@@ -46,4 +47,4 @@ class DashboardSend extends Component {
   }
 }
 
-export default DashboardSend;
+export default withUserData(DashboardSend);

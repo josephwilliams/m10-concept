@@ -1,69 +1,87 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import withUserData from '../hoc/withUserData'
 import DashboardPage from '../components/DashboardPage';
 import FormCardFundTransfer from '../components/FormCardFundTransfer';
 import TransferHistoryCard from '../components/TransferHistoryCard';
-
-const FORM_CONTENT = {
-  title: 'Load wallet amount',
-  subtitle: 'Available bank account balance: $10,000,000',
-  buttonText: 'Continue',
-  placeholder: '$',
-};
-
-const FORM_CONTENT_SUCCESS = {
-  title: 'Success!',
-  subtitle: 'Funds loaded to wallet',
-  buttonText: 'Continue',
-  buttonLinkTo: '/dashboard-home',
-}
 
 class DashboardLoad extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      recentTransaction: [
-        {
-          title: 'Loaded USD',
-          institution: 'Token',
-          amount: '10,000,000',
-          time: 'just now',
-        },
-      ],
+      inputTextAmount: '',
+      userData: {},
+      completedFundTransfer: false,
     };
   }
 
-  loadFunds = amount => {
+  componentDidMount() {
+    this.setState({ completedFundTransfer: false });
+  }
+
+  updateInputAmount = e => {
+    this.setState({ inputTextAmount: e.target.value });
+  }
+
+  loadFunds = async () => {
+    const { inputTextAmount } = this.state;
     const userEmail = window.email;
+    const userInstitution = window.institution;
     const options = {
       method: 'POST',
-      url: 'https://m10-concept-api.herokuapp.com/load-user-funds',
+      url: 'http://localhost:3000/upload-funds',
       data: {
         userEmail: userEmail,
-        amount: amount,
+        userInstitution: userInstitution,
+        amount: inputTextAmount,
       },
     };
-    const res = axios(options);
-    console.log('res', res);
+    await axios(options);
+    this.setState({ completedFundTransfer: true });
   }
 
   render() {
-    const { recentTransaction } = this.state;
-    const isTransactions = recentTransaction.length > 0;
+    const { userData } = this.props;
+    const { fundsUploaded, fundsAvailable } = userData;
+    const fundsUploadedArr = fundsUploaded ? JSON.parse(fundsUploaded) : [];
+    const { inputTextAmount, completedFundTransfer } = this.state;
+    const isTransactions = fundsUploadedArr.length > 0;
+
+    // start flow form content
+    const FORM_CONTENT = {
+      title: 'Load wallet amount',
+      subtitle: `Available bank account balance: $${fundsAvailable}`,
+      formLabel: 'Amount USD',
+      buttonText: 'Continue',
+      onInputChange: this.updateInputAmount,
+      buttonOnClick: this.loadFunds,
+      inputTextAmount: inputTextAmount,
+      placeholder: '$',
+    };
+
+    // finish flow form content
+    const FORM_CONTENT_SUCCESS = {
+      title: 'Success!',
+      subtitle: 'Funds loaded to wallet.',
+      buttonText: 'Continue',
+      buttonLinkTo: '/dashboard-home',
+    }
+
     return (
       <DashboardPage title={'Load'}>
         <FormCardFundTransfer
           FORM_CONTENT={FORM_CONTENT}
           FORM_CONTENT_SUCCESS={FORM_CONTENT_SUCCESS}
+          isComplete={completedFundTransfer}
         />
         {isTransactions && (
           <div className={'transactionsWrapper'}>
             <div className={'transactionsTitleWrapper'}>
               {'Transactions'}
             </div>
-            {recentTransaction.map((transaction, index) => (
+            {fundsUploadedArr.map((transaction, index) => (
               <TransferHistoryCard
-                title={transaction.title}
+                title={'Loaded USD'}
                 institution={transaction.institution}
                 amount={transaction.amount}
                 time={transaction.time}
@@ -77,4 +95,4 @@ class DashboardLoad extends Component {
   }
 }
 
-export default DashboardLoad;
+export default withUserData(DashboardLoad);

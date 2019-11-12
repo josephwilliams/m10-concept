@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import withUserData from '../hoc/withUserData';
 import DashboardPage from '../components/DashboardPage';
 
 class DashboardHome extends Component {
@@ -26,4 +27,4 @@ class DashboardHome extends Component {
   }
 }
 
-export default DashboardHome;
+export default withUserData(DashboardHome);

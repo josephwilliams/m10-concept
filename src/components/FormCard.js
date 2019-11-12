@@ -30,8 +30,17 @@ class FormCard extends Component {
       placeholder,
       hideInput,
       buttonOnClick,
+      isComplete,
     } = this.props
     const isFormInput = inputText.length > 0
+    const disableButton = (
+      isComplete
+        ? false
+        : isFormInput
+          ? false
+          : true
+        : true
+    )
     const onClick = (
       buttonOnClick
         ? buttonOnClick
@@ -72,7 +81,7 @@ class FormCard extends Component {
           <Button
             buttonText={buttonText}
             linkTo={buttonLinkTo}
-            disabled={!isFormInput}
+            disabled={disableButton}
             onClick={onClick}
           />
         </div>

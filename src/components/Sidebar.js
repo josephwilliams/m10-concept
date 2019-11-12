@@ -48,13 +48,15 @@ const Sidebar = () => {
   const relUrl = lodashGet(window, 'location.pathname');
   return (
     <div className={'sidebarWrapper'}>
-      <div className={'sidebarIconImageWrapper'}>
-        <img
-         src={TokenLogo}
-         alt={'Token'}
-         style={{ width: 150 }}
-        />
-      </div>
+      <Link to={'/'}>
+        <div className={'sidebarIconImageWrapper'}>
+          <img
+           src={TokenLogo}
+           alt={'Token'}
+           style={{ width: 150 }}
+          />
+        </div>
+      </Link>
       {sidebarLinks.map(sidebarLink => {
         const { title, linkTo, icon, customIconStyle } = sidebarLink;
         const isCurrentPath = relUrl === linkTo
