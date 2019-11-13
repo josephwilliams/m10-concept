@@ -29,7 +29,7 @@ class DashboardLoad extends Component {
     const userInstitution = window.institution;
     const options = {
       method: 'POST',
-      url: 'http://localhost:3000/load-funds',
+      url: 'https://m10-concept-api.herokuapp.com/load-funds',
       data: {
         userEmail: userEmail,
         userInstitution: userInstitution,

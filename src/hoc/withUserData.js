@@ -12,7 +12,7 @@ function withUserData(WrappedComponent, selectData) {
 
     getUserData = async () => {
       const userEmail = window.email;
-      const res = await axios.get(`http://localhost:3000/user/${userEmail}`);
+      const res = await axios.get(`https://m10-concept-api.herokuapp.com/user/${userEmail}`);
       const userData = (res || {}).data;
       this.setState({ userData: userData });
     }

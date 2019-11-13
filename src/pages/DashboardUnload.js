@@ -29,7 +29,7 @@ class DashboardUnload extends Component {
     const userInstitution = window.institution;
     const options = {
       method: 'POST',
-      url: 'http://localhost:3000/unload-funds',
+      url: 'https://m10-concept-api.herokuapp.com/unload-funds',
       data: {
         userEmail: userEmail,
         userInstitution: userInstitution,
