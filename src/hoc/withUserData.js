@@ -14,7 +14,6 @@ function withUserData(WrappedComponent, selectData) {
       const userEmail = window.email;
       const res = await axios.get(`http://localhost:3000/user/${userEmail}`);
       const userData = (res || {}).data;
-      console.log('> withUserData', userData);
       this.setState({ userData: userData });
     }
 

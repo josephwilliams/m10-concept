@@ -1,5 +1,7 @@
 .cardWrapper {
-  align-items: flex-start;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
   width: 445px;
   height: auto;
   margin: 40px;

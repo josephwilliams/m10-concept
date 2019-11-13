@@ -1,5 +1,7 @@
 .cardWrapper {
-  align-items: flex-start;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
   width: 445px;
   max-height: 420px;
   height: auto;
@@ -8,7 +10,6 @@
   background: #1F1F2B;
   box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.2);
   border-radius: 5px;
-  /* min-height: 365px; */
 }
 
 .cardContentContainer {

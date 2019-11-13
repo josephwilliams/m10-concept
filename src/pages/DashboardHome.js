@@ -27,11 +27,10 @@ function getTotalTransactionsList(userData) {
   ];
 
   const totalTransactionsListSorted = totalTransactionsList.sort((a,b) => (
-    new Moment(a.time).format('MMMM Do YYYY, h:mm:ss a') -
-    new Moment(b.time).format('MMMM Do YYYY, h:mm:ss a')
+    new Moment(a.time).diff(new Moment(b.time))
   ))
 
-  return totalTransactionsListSorted;
+  return totalTransactionsListSorted.reverse();
 }
 
 const DashboardHome = ({ userData }) => {
@@ -39,10 +38,9 @@ const DashboardHome = ({ userData }) => {
     fundsAvailable,
   } = userData;
   const transactionsListSortedByDate = getTotalTransactionsList(userData);
-  console.log('> transactionsListSortedByDate', transactionsListSortedByDate);
   const isTransactions = transactionsListSortedByDate.length > 0;
   const mostRecentTransaction = (
-    transactionsListSortedByDate.length > 0 &&
+    isTransactions &&
     transactionsListSortedByDate[0]
   )
   return (

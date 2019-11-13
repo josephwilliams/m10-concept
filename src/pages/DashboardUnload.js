@@ -50,7 +50,7 @@ class DashboardUnload extends Component {
     // start flow form content
     const FORM_CONTENT = {
       title: 'Unload wallet amount',
-      subtitle: `Available bank account balance: $${fundsAvailable}`,
+      subtitle: `Available bank account balance: $${fundsAvailable || ''}`,
       formLabel: 'Amount USD',
       buttonText: 'Continue',
       onInputChange: this.updateInputAmount,

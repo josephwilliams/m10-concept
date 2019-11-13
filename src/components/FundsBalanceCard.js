@@ -10,7 +10,7 @@ export function getFundsBalanceCardDetails(transaction) {
       }
     case 'UNLOAD':
       return {
-        title: 'Loaded',
+        title: 'Unloaded',
         circleColor: '#cd3c3c',
       }
     default:
@@ -23,6 +23,7 @@ const FundsBalanceCard = ({
   mostRecentTransaction,
 }) => {
   const mostRecentTransactionAmount = (mostRecentTransaction || {}).amount;
+  const mostRecentTransactionDetails = getFundsBalanceCardDetails(mostRecentTransaction);
   return (
     <div className={'fundsBalanceCardWrapper'}>
       <div className={'cardContentTitles'}>
@@ -39,7 +40,7 @@ const FundsBalanceCard = ({
               {'Last Transaction'}
             </div>
             <div className={'cardMostRecentTransaction'}>
-              {`Loaded $${mostRecentTransactionAmount}`}
+              {`${mostRecentTransactionDetails.title} $${mostRecentTransactionAmount}`}
             </div>
           </>
         )}
