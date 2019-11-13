@@ -2,7 +2,9 @@ import React from 'react';
 import Moment from 'moment';
 import withUserData from '../hoc/withUserData';
 import DashboardPage from '../components/DashboardPage';
-import FundsBalanceCard from '../components/FundsBalanceCard';
+import FundsBalanceCard, {
+  getFundsBalanceCardDetails,
+} from '../components/FundsBalanceCard';
 import TransferHistoryCard from '../components/TransferHistoryCard';
 
 function getTotalTransactionsList(userData) {
@@ -60,17 +62,20 @@ const DashboardHome = ({ userData }) => {
               {'You have no past transactions.'}
             </div>
           ) : (
-            transactionsListSortedByDate.map((transaction, index) => (
-              <TransferHistoryCard
-                title={'Unloaded USD'}
-                institution={transaction.institution}
-                amount={transaction.amount}
-                time={transaction.time}
-                key={index}
-                circleColor={'#6d58ff'}
-              />
-            ))
-          )}
+            transactionsListSortedByDate.map((transaction, index) => {
+              const details = getFundsBalanceCardDetails(transaction);
+              return (
+                <TransferHistoryCard
+                  title={`${details.title} USD`}
+                  institution={transaction.institution}
+                  amount={transaction.amount}
+                  time={transaction.time}
+                  key={index}
+                  circleColor={details.circleColor}
+                />
+              )
+            }
+          ))}
       </div>
     </DashboardPage>
   )
