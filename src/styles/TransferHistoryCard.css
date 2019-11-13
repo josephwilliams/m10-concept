@@ -21,6 +21,8 @@
 }
 
 .transferHistoryCardTitle {
+  display: flex;
+  align-items: center;
   font-weight: 600;
 }
 
@@ -38,4 +40,11 @@
 .transferHistoryCardTime {
   font-size: 12px;
   line-height: 13px;
+}
+
+.statusCircle {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-right: 6px;
 }

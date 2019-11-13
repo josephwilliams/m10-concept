@@ -7,12 +7,17 @@ const TransferHistoryCard = ({
   institution,
   amount,
   time,
+  circleColor,
 }) => {
   const relTime = moment(time).fromNow();
   return (
     <div className={'transferHistoryCardWrapper'}>
       <div className={'transferHistoryCardColumnLeft'}>
         <div className={'transferHistoryCardTitle'}>
+          <div
+            className={'statusCircle'}
+            style={{ backgroundColor: circleColor }}
+          />
           {title}
         </div>
         <div className={'transferHistoryCardInstitution'}>

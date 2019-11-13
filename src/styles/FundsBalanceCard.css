@@ -1,0 +1,38 @@
+.fundsBalanceCardWrapper {
+  align-items: flex-start;
+  width: 445px;
+  max-height: 200px;
+  height: auto;
+  padding: 0;
+  margin: 40px;
+  background: #1F1F2B;
+  box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  padding: 40px;
+}
+
+.cardCurrencyName {
+  color: #757f99;
+}
+
+.cardFundsAvailable {
+  color: #ffffff;
+  font-size: 50px;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.cardFundsDivider {
+  height: 1px;
+  width: 100%;
+  background: #757f99;
+}
+
+.cardCurrencyLastTransactionTitle {
+  color: #757f99;
+  margin: 20px 0px 4px;
+}
+
+.cardMostRecentTransaction {
+  font-size: 24px;
+}

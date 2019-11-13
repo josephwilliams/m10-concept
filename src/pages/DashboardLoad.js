@@ -29,7 +29,7 @@ class DashboardLoad extends Component {
     const userInstitution = window.institution;
     const options = {
       method: 'POST',
-      url: 'http://localhost:3000/upload-funds',
+      url: 'http://localhost:3000/load-funds',
       data: {
         userEmail: userEmail,
         userInstitution: userInstitution,
@@ -42,10 +42,10 @@ class DashboardLoad extends Component {
 
   render() {
     const { userData } = this.props;
-    const { fundsUploaded, fundsAvailable } = userData;
-    const fundsUploadedArr = fundsUploaded ? JSON.parse(fundsUploaded) : [];
+    const { fundsLoaded, fundsAvailable } = userData;
+    const fundsLoadedArr = fundsLoaded ? JSON.parse(fundsLoaded) : [];
     const { inputTextAmount, completedFundTransfer } = this.state;
-    const isTransactions = fundsUploadedArr.length > 0;
+    const isTransactions = fundsLoadedArr.length > 0;
 
     // start flow form content
     const FORM_CONTENT = {
@@ -74,22 +74,28 @@ class DashboardLoad extends Component {
           FORM_CONTENT_SUCCESS={FORM_CONTENT_SUCCESS}
           isComplete={completedFundTransfer}
         />
-        {isTransactions && (
-          <div className={'transactionsWrapper'}>
-            <div className={'transactionsTitleWrapper'}>
-              {'Transactions'}
-            </div>
-            {fundsUploadedArr.map((transaction, index) => (
-              <TransferHistoryCard
-                title={'Loaded USD'}
-                institution={transaction.institution}
-                amount={transaction.amount}
-                time={transaction.time}
-                key={index}
-              />
-            ))}
+        <div className={'transactionsWrapper'}>
+          <div className={'transactionsTitleWrapper'}>
+            {'Transactions'}
           </div>
-        )}
+          {!isTransactions
+            ? (
+              <div className={'noTransactions'}>
+                {'You have no past transactions.'}
+              </div>
+            ) : (
+              fundsLoadedArr.map((transaction, index) => (
+                <TransferHistoryCard
+                  title={'Loaded USD'}
+                  institution={transaction.institution}
+                  amount={transaction.amount}
+                  time={transaction.time}
+                  key={index}
+                  circleColor={'#6d58ff'}
+                />
+              ))
+            )}
+        </div>
       </DashboardPage>
     );
   }
