@@ -61,7 +61,11 @@ const DashboardHome = ({ userData }) => {
             </div>
           ) : (
             transactionsListSortedByDate.map((transaction, index) => {
-              const details = getFundsBalanceCardDetails({ transaction });
+              const details = getFundsBalanceCardDetails({
+                transaction,
+                recipient: transaction.recipientEmail,
+                sender: transaction.senderEmail,
+              });
               return (
                 <TransferHistoryCard
                   title={`${details.title} USD`}
