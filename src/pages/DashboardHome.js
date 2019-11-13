@@ -61,13 +61,14 @@ const DashboardHome = ({ userData }) => {
             </div>
           ) : (
             transactionsListSortedByDate.map((transaction, index) => {
-              const details = getFundsBalanceCardDetails(transaction);
+              const details = getFundsBalanceCardDetails({ transaction });
               return (
                 <TransferHistoryCard
                   title={`${details.title} USD`}
                   institution={transaction.institution}
                   amount={transaction.amount}
                   time={transaction.time}
+                  note={details.note}
                   key={index}
                   circleColor={details.circleColor}
                 />

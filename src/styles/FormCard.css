@@ -24,6 +24,10 @@
   margin-bottom: 100px;
 }
 
+.cardContentTitlesWithSecondInput {
+  margin-bottom: 22px;
+}
+
 .cardTitle {
   color: #ffffff;
   font-size: 18px;
@@ -63,6 +67,10 @@
 
 .cardFormInput:focus {
   border: 1px solid #624fe6;
+}
+
+.cardFormInputFirst {
+  margin-bottom: 12px;
 }
 
 .formButtonWrapper {

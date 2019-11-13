@@ -1,7 +1,7 @@
 import React from 'react';
 import '../styles/FundsBalanceCard.css';
 
-export function getFundsBalanceCardDetails(transaction) {
+export function getFundsBalanceCardDetails({ transaction, sender, recipient }) {
   switch (transaction.type) {
     case 'LOAD':
       return {
@@ -13,7 +13,23 @@ export function getFundsBalanceCardDetails(transaction) {
         title: 'Unloaded',
         circleColor: '#cd3c3c',
       }
+    case 'SEND':
+      return {
+        title: 'Sent',
+        note: `Sent funds to ${recipient}`,
+        circleColor: '#66bf5d',
+      }
+    case 'RECEIVE':
+      return {
+        title: 'Received',
+        note: `Received funds from ${sender}`,
+        circleColor: '#46ebf4',
+      }
     default:
+      return {
+        title: 'Transfered',
+        circleColor: '#66bf5d',
+      }
   }
 }
 
@@ -23,7 +39,9 @@ const FundsBalanceCard = ({
   mostRecentTransaction,
 }) => {
   const mostRecentTransactionAmount = (mostRecentTransaction || {}).amount;
-  const mostRecentTransactionDetails = getFundsBalanceCardDetails(mostRecentTransaction);
+  const mostRecentTransactionDetails = (
+    getFundsBalanceCardDetails({ transaction: mostRecentTransaction })
+  );
   return (
     <div className={'fundsBalanceCardWrapper'}>
       <div className={'cardContentTitles'}>

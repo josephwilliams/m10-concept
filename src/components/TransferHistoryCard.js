@@ -6,6 +6,7 @@ const TransferHistoryCard = ({
   title,
   institution,
   amount,
+  note,
   time,
   circleColor,
 }) => {
@@ -21,7 +22,7 @@ const TransferHistoryCard = ({
           {title}
         </div>
         <div className={'transferHistoryCardInstitution'}>
-          {`Deposited funds from ${institution}`}
+          {note || `Deposited funds from ${institution}`}
         </div>
       </div>
       <div className={'transferHistoryCardColumnRight'}>

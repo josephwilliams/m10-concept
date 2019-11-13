@@ -10,6 +10,7 @@ class DashboardLoad extends Component {
     super(props);
     this.state = {
       inputTextAmount: '',
+      inputTextRecipient: '',
       userData: {},
       completedFundTransfer: false,
     };
@@ -23,15 +24,20 @@ class DashboardLoad extends Component {
     this.setState({ inputTextAmount: e.target.value });
   }
 
-  loadFunds = async () => {
-    const { inputTextAmount } = this.state;
+  updateInputRecipient = e => {
+    this.setState({ inputTextRecipient: e.target.value });
+  }
+
+  sendFunds = async () => {
+    const { inputTextAmount, inputTextRecipient } = this.state;
     const userEmail = window.email;
     const userInstitution = window.institution;
     const options = {
       method: 'POST',
-      url: 'http://localhost:3000/load-funds',
+      url: 'http://localhost:3000/send-funds',
       data: {
         userEmail: userEmail,
+        recipientEmail: inputTextRecipient,
         userInstitution: userInstitution,
         amount: inputTextAmount,
       },
@@ -44,7 +50,7 @@ class DashboardLoad extends Component {
     const { userData } = this.props;
     const { fundsSent, fundsAvailable } = userData;
     const fundsSentArr = fundsSent ? JSON.parse(fundsSent) : [];
-    const { inputTextAmount, completedFundTransfer } = this.state;
+    const { inputTextAmount, inputTextRecipient, completedFundTransfer } = this.state;
     const isTransactions = fundsSentArr.length > 0;
 
     // start flow form content
@@ -54,7 +60,8 @@ class DashboardLoad extends Component {
       formLabel: 'Amount USD',
       buttonText: 'Continue',
       onInputChange: this.updateInputAmount,
-      buttonOnClick: this.loadFunds,
+      onRecipientInputChange: this.updateInputRecipient,
+      buttonOnClick: this.sendFunds,
       inputTextAmount: inputTextAmount,
       placeholder: '$',
     };
@@ -62,7 +69,7 @@ class DashboardLoad extends Component {
     // finish flow form content
     const FORM_CONTENT_SUCCESS = {
       title: 'Success!',
-      subtitle: '$value sent to $name.',
+      subtitle: `$${inputTextAmount} sent to ${inputTextRecipient}.`,
       buttonText: 'Continue',
       buttonLinkTo: '/dashboard-home',
     }
